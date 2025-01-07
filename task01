@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navigation Menu</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navigation Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 20px;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background-color: #555;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: yellow;
+    }
+
+    /* Content for Scrolling */
+    .content {
+      padding-top: 80px;
+      text-align: center;
+    }
+
+    .content section {
+      height: 100vh;
+      padding: 20px;
+    }
+
+    section:nth-child(even) {
+      background-color: #f4f4f4;
+    }
+
+    section:nth-child(odd) {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <nav class="navbar" id="navbar">
+    <a href="#section1">Home</a>
+    <a href="#section2">About</a>
+    <a href="#section3">Services</a>
+    <a href="#section4">Contact</a>
+  </nav>
+
+  <!-- Content -->
+  <div class="content">
+    <section id="section1">Home Section</section>
+    <section id="section2">About Section</section>
+    <section id="section3">Services Section</section>
+    <section id="section4">Contact Section</section>
+  </div>
+
+  <script>
+    // JavaScript for scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>
